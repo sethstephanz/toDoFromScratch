@@ -1,6 +1,6 @@
 //Source: https://www.w3schools.com/howto/howto_js_countdown.asp
 // Set the date we're counting down to
-let deadline = getElementById("");
+let deadline = getElementById(deadlineInput.value);
 
 var countDownDate = new Date("deadline").getTime();
 
