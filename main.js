@@ -1,3 +1,4 @@
+import { countDownDate } from "countdownTimer.js";
 let deadlineInput = document.getElementById("deadlineInput");
 let tasksInput = document.getElementById("tasksInput");
 let createTask = document.getElementById("createTask"); //the button
@@ -17,6 +18,11 @@ createTask.addEventListener("click", function () {
     if (confirm == true) {
       let newTime = window.prompt("What is the deadline?");
       addDeadline.value += newTime;
+    } else {
+      let paragraph2 = document.createElement("p");
+      let newParagraph2 = document.createTextNode("No Deadline");
+      paragraph2.appendChild(newParagraph2);
+      addDeadline.appendChild(paragraph2);
     }
   }
   //appending under Deadline
@@ -26,7 +32,9 @@ createTask.addEventListener("click", function () {
   addDeadline.appendChild(paragraph2);
   //wipes content after click
   tasksInput.value = "";
-  // deadlineInput.value = "";
+  deadlineInput.value = "";
 });
+
+console.log("countDownDate: " + countDownDate);
 
 // add this to deadline column whenever new deadline is entered <script src="countdownTimer.js"></script>
