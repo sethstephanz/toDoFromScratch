@@ -1,4 +1,3 @@
-import { countDownDate } from "countdownTimer.js";
 let deadlineInput = document.getElementById("deadlineInput");
 let tasksInput = document.getElementById("tasksInput");
 let createTask = document.getElementById("createTask"); //the button
@@ -7,6 +6,10 @@ let addDeadline = document.getElementById("addDeadline");
 let newTaskContent = document.getElementById("addTask");
 
 createTask.addEventListener("click", function () {
+  if (tasksInput.value.length == 0) {
+    alert("Enter a new task!");
+    return;
+  }
   //appending under Tasks
   let paragraph = document.createElement("p");
   let newParagraph = document.createTextNode(tasksInput.value);
@@ -33,8 +36,37 @@ createTask.addEventListener("click", function () {
   //wipes content after click
   tasksInput.value = "";
   deadlineInput.value = "";
+  //appending under Countdown
+  // let paragraph2 = document.createElement("p");
+  // let newParagraph2 = document.createTextNode(coundown.value);
+  // paragraph2.appendChild(newParagraph2);
+  // addDeadline.appendChild(paragraph2);
+  // //wipes content after click
+  // tasksInput.value = "";
+  // deadlineInput.value = "";
 });
 
-console.log("countDownDate: " + countDownDate);
-
-// add this to deadline column whenever new deadline is entered <script src="countdownTimer.js"></script>
+if (deadlineInput.value != null) {
+  //source: https://www.sitepoint.com/build-javascript-countdown-timer-no-dependencies/
+  function initializeClock(id, endtime) {
+    const clock = document.getElementById(addCountdown);
+    const timeinterval = setInterval(() => {
+      const t = getTimeRemaining(endtime);
+      clock.innerHTML =
+        "days: " +
+        t.days +
+        "<br>" +
+        "hours: " +
+        t.hours +
+        "<br>" +
+        "minutes: " +
+        t.minutes +
+        "<br>" +
+        "seconds: " +
+        t.seconds;
+      if (t.total <= 0) {
+        clearInterval(timeinterval);
+      }
+    }, 1000);
+  }
+}

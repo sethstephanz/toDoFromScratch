@@ -14,14 +14,18 @@
         <div id="addTask"></div>
       </div>
       <div class="toDo" id="deadline">
-        <h1>Deadline</h1>
-        <input type="time" id="deadlineInput" class="inputField" />
+        <label for="deadlineInput"><h1>Deadline</h1></label>
+          <input type="datetime-local" id="deadlineInput"
+              name="deadlineInput" value=""
+              min="2018-06-07 00:00">
         <div id="addDeadline"></div>
       </div>
-      <div class="toDo" id="countdown"><h1>Countdown</h1></div>
+      <div class="toDo" id="countdown"><h1>Countdown</h1>
+        <div id="addCountdown"></div> 
+        <!-- add countdown above -->
+      </div>
       <button id="createTask">Create Task</button>
     </div>
   </body>
   <script src="main.js"></script>
-  <script type="module" src="countdownTimer.js"></script>
 </html
